@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Midea AC Invoice Manager</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f2f4f7;
+    color:#111827;
+}
+
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
+.header{
+    background:#e60012;
+    color:white;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-box{
+    background:white;
+    color:#e60012;
+    font-size:30px;
+    font-weight:900;
+    padding:5px 13px;
+    border-radius:5px;
+    letter-spacing:-1px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+
+.card h2{
+    font-size:19px;
+    margin-bottom:18px;
+    color:#111827;
+    border-bottom:2px solid #e60012;
+    padding-bottom:8px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.field label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:6px;
+    color:#374151;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1px solid #d1d5db;
+    border-radius:7px;
+    padding:11px;
+    font-size:15px;
+    outline:none;
+    background:white;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#e60012;
+    box-shadow:0 0 0 2px rgba(230,0,18,.08);
+}
+
+textarea{
+    min-height:90px;
+    resize:vertical;
+}
+
+.invoice-number-row{
+    display:flex;
+    gap:7px;
+}
+
+.invoice-number-row input{
+    flex:1;
+}
+
+.hint{
+    font-size:11px;
+    color:#6b7280;
+    margin-top:5px;
+}
+
+.btn{
+    border:0;
+    border-radius:7px;
+    padding:11px 16px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.btn-red{
+    background:#e60012;
+    color:white;
+}
+
+.btn-black{
+    background:#111827;
+    color:white;
+}
+
+.btn-green{
+    background:#16a34a;
+    color:white;
+}
+
+.btn-blue{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-gray{
+    background:#6b7280;
+    color:white;
+}
+
+.btn-danger{
+    background:#dc2626;
+    color:white;
+}
+
+.btn-small{
+    padding:9px 12px;
+    white-space:nowrap;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:720px;
+}
+
+th{
+    background:#111827;
+    color:white;
+    padding:11px 8px;
+    font-size:13px;
+    text-align:left;
+}
+
+td{
+    border-bottom:1px solid #e5e7eb;
+    padding:8px;
+    vertical-align:middle;
+}
+
+td input{
+    padding:9px;
+}
+
+.item-amount{
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.remove-btn{
+    background:#dc2626;
+    color:white;
+    border:0;
+    border-radius:6px;
+    padding:8px 10px;
+    cursor:pointer;
+}
+
+.add-item{
+    margin-top:12px;
+}
+
+.adjustments{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:15px;
+}
+
+.summary{
+    max-width:430px;
+    margin-left:auto;
+    margin-top:20px;
+    border:1px solid #e5e7eb;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 14px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.summary-row:last-child{
+    border-bottom:0;
+}
+
+.summary-row.total{
+    background:#111827;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.saved-search{
+    margin-bottom:15px;
+}
+
+.saved-item{
+    border:1px solid #e5e7eb;
+    border-radius:9px;
+    padding:13px;
+    margin-bottom:10px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.saved-info strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.saved-info small{
+    color:#6b7280;
+}
+
+.saved-actions{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.empty{
+    text-align:center;
+    color:#6b7280;
+    padding:25px;
+}
+
+.preview-box{
+    border:1px solid #ddd;
+    padding:30px;
+    background:white;
+}
+
+.preview-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    border-bottom:3px solid #e60012;
+    padding-bottom:15px;
+    margin-bottom:20px;
+}
+
+.preview-logo{
+    font-size:38px;
+    font-weight:900;
+    color:#e60012;
+}
+
+.preview-title{
+    text-align:right;
+}
+
+.preview-title h1{
+    font-size:25px;
+}
+
+.preview-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:0;
+}
+
+.preview-table th{
+    background:#e60012;
+}
+
+.preview-table td,
+.preview-table th{
+    border:1px solid #ddd;
+    padding:8px;
+}
+
+.preview-summary{
+    margin-left:auto;
+    width:350px;
+    margin-top:20px;
+}
+
+.note-box{
+    margin-top:25px;
+    border-left:4px solid #e60012;
+    background:#f9fafb;
+    padding:12px;
+}
+
+@media(max-width:700px){
+    .container{
+        padding:10px;
+    }
+
+    .card{
+        padding:14px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .adjustments{
+        grid-template-columns:1fr;
+    }
+
+    .header{
+        padding:14px;
+    }
+
+    .logo-text{
+        font-size:15px;
+    }
+
+    .logo-box{
+        font-size:23px;
+    }
+
+    .actions .btn{
+        flex:1 1 45%;
+    }
+
+    .preview-box{
+        padding:15px;
+    }
+
+    .preview-header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .preview-title{
+        text-align:left;
+    }
+
+    .preview-summary{
+        width:100%;
+    }
+}
+
+@media print{
+    body{
+        background:white;
+    }
+
+    .header,
+    .no-print,
+    .actions,
+    .saved-card{
+        display:none !important;
+    }
+
+    .container{
+        max-width:none;
+        padding:0;
+    }
+
+    .card{
+        box-shadow:none;
+        border:0;
+        padding:0;
+    }
+
+    #previewSection{
+        display:block !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header no-print">
+    <div class="logo">
+        <div class="logo-box">Midea</div>
+        <div class="logo-text">AC Invoice Manager</div>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- CUSTOMER INFORMATION -->
+    <div class="card no-print">
+        <h2>Customer Information</h2>
+
+        <div class="grid">
+
+            <div class="field">
+                <label>Invoice Number *</label>
+
+                <div class="invoice-number-row">
+                    <input
+                        type="text"
+                        id="invoiceNumber"
+                        placeholder="MIDEA-00001"
+                        autocomplete="off"
+                    >
+
+                    <button
+                        type="button"
+                        class="btn btn-black btn-small"
+                        onclick="setNextInvoiceNumber()"
+                    >
+                        Next
+                    </button>
+                </div>
+
+                <div class="hint">
+                    Invoice number can be edited before saving.
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Customer Name *</label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Customer Name"
+                    autocomplete="name"
+                >
+            </div>
+
+            <div class="field">
+                <label>Customer Phone</label>
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="03XXXXXXXXX"
+                    autocomplete="tel"
+                >
+            </div>
+
+            <div class="field">
+                <label>Address</label>
+                <input
+                    type="text"
+                    id="customerAddress"
+                    placeholder="Customer Address"
+                    autocomplete="street-address"
+                >
+            </div>
+
+            <div class="field">
+                <label>Invoice Date</label>
+                <input
+                    type="date"
+                    id="invoiceDate"
+                >
+            </div>
+
+            <div class="field">
+                <label>Invoice Time</label>
+                <input
+                    type="time"
+                    id="invoiceTime"
+                >
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ITEMS -->
+    <div class="card no-print">
+        <h2>Parts / Services</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:45%">Description</th>
+                        <th style="width:12%">Qty</th>
+                        <th style="width:18%">Rate</th>
+                        <th style="width:17%">Amount</th>
+                        <th style="width:8%">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="itemsBody"></tbody>
+            </table>
+        </div>
+
+        <button
+            type="button"
+            class="btn btn-black add-item"
+            onclick="addItem()"
+        >
+            + Add Item
+        </button>
+    </div>
+
+
+    <!-- ADJUSTMENTS -->
+    <div class="card no-print">
+        <h2>Adjustments</h2>
+
+        <div class="adjustments">
+
+            <div class="field">
+                <label>Discount (Rs)</label>
+                <input
+                    type="number"
+                    id="discount"
+                    value="0"
+                    min="0"
+                    step="1"
+                    oninput="calculateTotal()"
+                >
+            </div>
+
+            <div class="field">
+                <label>Additional Charges (Rs)</label>
+                <input
+                    type="number"
+                    id="additionalCharges"
+                    value="0"
+                    min="0"
+                    step="1"
+                    oninput="calculateTotal()"
+                >
+            </div>
+
+            <div class="field">
+                <label>Customer Purchase / Exchange Deduction (Rs)</label>
+                <input
+                    type="number"
+                    id="exchangeDeduction"
+                    value="0"
+                    min="0"
+                    step="1"
+                    oninput="calculateTotal()"
+                >
+            </div>
+
+        </div>
+
+
+        <div class="summary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong id="subtotal">Rs 0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Discount</span>
+                <strong id="discountTotal">Rs 0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Additional Charges</span>
+                <strong id="additionalTotal">Rs 0</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Exchange / Purchase Deduction</span>
+                <strong id="deductionTotal">Rs 0</strong>
+            </div>
+
+            <div class="summary-row total">
+                <span>FINAL TOTAL</span>
+                <strong id="finalTotal">Rs 0</strong>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- NOTES -->
+    <div class="card no-print">
+        <h2>Warranty / Additional Note</h2>
+
+        <textarea
+            id="additionalNote"
+            placeholder="Example: 5 year compressor warranty..."
+        ></textarea>
+    </div>
+
+
+    <!-- ACTIONS -->
+    <div class="card no-print">
+
+        <div class="actions">
+
+            <button
+                type="button"
+                class="btn btn-red"
+                onclick="saveInvoice()"
+            >
+                Save Invoice
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-blue"
+                onclick="showPreview()"
+            >
+                Preview
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-black"
+                onclick="printInvoice()"
+            >
+                Print / Save PDF
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-green"
+                onclick="sendWhatsApp()"
+            >
+                WhatsApp
+            </button>
+
+            <button
+                type="button"
+                class="btn btn-gray"
+                onclick="clearForm()"
+            >
+                Clear
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SAVED INVOICES -->
+    <div class="card saved-card no-print">
+
+        <h2>Saved Invoices</h2>
+
+        <input
+            class="saved-search"
+            type="search"
+            id="searchInvoice"
+            placeholder="Search invoice number or customer name..."
+            oninput="renderSavedInvoices()"
+        >
+
+        <div id="savedInvoices"></div>
+
+    </div>
+
+
+    <!-- PREVIEW -->
+    <div
+        class="card"
+        id="previewSection"
+        style="display:none;"
+    >
+
+        <div class="preview-box" id="previewBox"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+const STORAGE_KEY = "midea_ac_invoice_manager_v1";
+
+let items = [
+    {
+        description:"",
+        qty:1,
+        rate:0
+    }
+];
+
+let currentInvoiceNo = "";
+let originalInvoiceNo = "";
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const invoiceNumberEl =
+    document.getElementById("invoiceNumber");
+
+const customerNameEl =
+    document.getElementById("customerName");
+
+const customerPhoneEl =
+    document.getElementById("customerPhone");
+
+const customerAddressEl =
+    document.getElementById("customerAddress");
+
+const invoiceDateEl =
+    document.getElementById("invoiceDate");
+
+const invoiceTimeEl =
+    document.getElementById("invoiceTime");
+
+const discountEl =
+    document.getElementById("discount");
+
+const additionalChargesEl =
+    document.getElementById("additionalCharges");
+
+const exchangeDeductionEl =
+    document.getElementById("exchangeDeduction");
+
+const additionalNoteEl =
+    document.getElementById("additionalNote");
+
+const itemsBody =
+    document.getElementById("itemsBody");
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function money(value){
+
+    value = Number(value) || 0;
+
+    return value.toLocaleString("en-PK", {
+        maximumFractionDigits:2
+    });
+}
+
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+function getInvoices(){
+
+    try{
+        return JSON.parse(
+            localStorage.getItem(STORAGE_KEY)
+        ) || [];
+    }
+    catch(error){
+        return [];
+    }
+}
+
+
+function saveInvoices(invoices){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(invoices)
+    );
+}
+
+
+/* =========================
+   INVOICE NUMBER
+========================= */
+
+function nextInvoiceNumber(){
+
+    const invoices = getInvoices();
+
+    let highest = 0;
+
+    invoices.forEach(invoice => {
+
+        const match = String(invoice.invoiceNo || "")
+            .match(/(\d+)$/);
+
+        if(match){
+
+            const number =
+                parseInt(match[1],10);
+
+            if(number > highest){
+                highest = number;
+            }
+        }
+
+    });
+
+    return "MIDEA-" +
+        String(highest + 1).padStart(5,"0");
+}
+
+
+function setNextInvoiceNumber(){
+
+    invoiceNumberEl.value =
+        nextInvoiceNumber();
+
+    currentInvoiceNo = "";
+    originalInvoiceNo = "";
+}
+
+
+/* =========================
+   DATE / TIME
+========================= */
+
+function setCurrentDateTime(){
+
+    const now = new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(now.getMonth()+1)
+        .padStart(2,"0");
+
+    const day =
+        String(now.getDate())
+        .padStart(2,"0");
+
+    const hours =
+        String(now.getHours())
+        .padStart(2,"0");
+
+    const minutes =
+        String(now.getMinutes())
+        .padStart(2,"0");
+
+    invoiceDateEl.value =
+        `${year}-${month}-${day}`;
+
+    invoiceTimeEl.value =
+        `${hours}:${minutes}`;
+
+    if(!invoiceNumberEl.value.trim()){
+
+        invoiceNumberEl.value =
+            nextInvoiceNumber();
+    }
+}
+
+
+/* =========================
+   ITEMS
+========================= */
+
+function renderItems(){
+
+    itemsBody.innerHTML = "";
+
+    items.forEach((item,index) => {
+
+        const qty =
+            Number(item.qty) || 0;
+
+        const rate =
+            Number(item.rate) || 0;
+
+        const amount =
+            qty * rate;
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td>
+                <input
+                    type="text"
+                    value="${escapeHTML(item.description)}"
+                    placeholder="Part / Service Description"
+                    autocomplete="off"
+                    oninput="updateItem(${index}, 'description', this.value)"
+                >
+            </td>
+
+            <td>
+                <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="${qty}"
+                    oninput="updateItem(${index}, 'qty', this.value)"
+                >
+            </td>
+
+            <td>
+                <input
+                    type="number"
+                    min="0"
+                    step="1"
+                    value="${rate}"
+                    oninput="updateItem(${index}, 'rate', this.value)"
+                >
+            </td>
+
+            <td class="item-amount">
+                Rs ${money(amount)}
+            </td>
+
+            <td>
+                <button
+                    type="button"
+                    class="remove-btn"
+                    onclick="removeItem(${index})"
+                >
+                    ×
+                </button>
+            </td>
+        `;
+
+        itemsBody.appendChild(row);
+
+    });
+
+    calculateTotal();
+}
+
+
+/*
+IMPORTANT:
+Do NOT renderItems() here after every keystroke.
+
+If the whole table is recreated while the user is typing,
+Android/mobile browsers can close the keyboard and remove
+the cursor.
+
+We only update the amount cell now.
+*/
+
+function updateItem(index,key,value){
+
+    if(!items[index]){
+        return;
+    }
+
+    if(key === "description"){
+
+        items[index].description =
+            value;
+
+    }
+    else if(key === "qty"){
+
+        items[index].qty =
+            Number(value) || 0;
+
+    }
+    else if(key === "rate"){
+
+        items[index].rate =
+            Number(value) || 0;
+
+    }
+
+
+    const row =
+        itemsBody.children[index];
+
+    if(row){
+
+        const amount =
+            (Number(items[index].qty) || 0) *
+            (Number(items[index].rate) || 0);
+
+        const amountCell =
+            row.querySelector(".item-amount");
+
+        if(amountCell){
+
+            amountCell.textContent =
+                "Rs " + money(amount);
+        }
+    }
+
+    calculateTotal();
+}
+
+
+function addItem(){
+
+    items.push({
+        description:"",
+        qty:1,
+        rate:0
+    });
+
+    renderItems();
+
+    setTimeout(() => {
+
+        const rows =
+            itemsBody.querySelectorAll("tr");
+
+        if(rows.length){
+
+            const lastInput =
+                rows[rows.length-1]
+                .querySelector("input");
+
+            if(lastInput){
+                lastInput.focus();
+            }
+        }
+
+    },50);
+}
+
+
+function removeItem(index){
+
+    if(items.length === 1){
+
+        items[0] = {
+            description:"",
+            qty:1,
+            rate:0
+        };
+
+    }
+    else{
+
+        items.splice(index,1);
+
+    }
+
+    renderItems();
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+function calculateTotal(){
+
+    let subtotal = 0;
+
+    items.forEach(item => {
+
+        subtotal +=
+            (Number(item.qty) || 0) *
+            (Number(item.rate) || 0);
+
+    });
+
+    const discount =
+        Number(discountEl.value) || 0;
+
+    const additional =
+        Number(additionalChargesEl.value) || 0;
+
+    const deduction =
+        Number(exchangeDeductionEl.value) || 0;
+
+    let finalTotal =
+        subtotal -
+        discount +
+        additional -
+        deduction;
+
+    if(finalTotal < 0){
+        finalTotal = 0;
+    }
+
+    document.getElementById("subtotal")
+        .textContent =
+        "Rs " + money(subtotal);
+
+    document.getElementById("discountTotal")
+        .textContent =
+        "Rs " + money(discount);
+
+    document.getElementById("additionalTotal")
+        .textContent =
+        "Rs " + money(additional);
+
+    document.getElementById("deductionTotal")
+        .textContent =
+        "Rs " + money(deduction);
+
+    document.getElementById("finalTotal")
+        .textContent =
+        "Rs " + money(finalTotal);
+}
+
+
+/* =========================
+   COLLECT INVOICE
+========================= */
+
+function collectInvoice(){
+
+    const typedNumber =
+        invoiceNumberEl.value.trim();
+
+    const invoiceNo =
+        typedNumber ||
+        currentInvoiceNo ||
+        nextInvoiceNumber();
+
+    let subtotal = 0;
+
+    items.forEach(item => {
+
+        subtotal +=
+            (Number(item.qty) || 0) *
+            (Number(item.rate) || 0);
+
+    });
+
+    const discount =
+        Number(discountEl.value) || 0;
+
+    const additionalCharges =
+        Number(additionalChargesEl.value) || 0;
+
+    const exchangeDeduction =
+        Number(exchangeDeductionEl.value) || 0;
+
+    let finalTotal =
+        subtotal -
+        discount +
+        additionalCharges -
+        exchangeDeduction;
+
+    if(finalTotal < 0){
+        finalTotal = 0;
+    }
+
+    return {
+
+        invoiceNo:invoiceNo,
+
+        customerName:
+            customerNameEl.value.trim(),
+
+        customerPhone:
+            customerPhoneEl.value.trim(),
+
+        customerAddress:
+            customerAddressEl.value.trim(),
+
+        invoiceDate:
+            invoiceDateEl.value,
+
+        invoiceTime:
+            invoiceTimeEl.value,
+
+        items:
+            JSON.parse(JSON.stringify(items)),
+
+        subtotal:subtotal,
+
+        discount:discount,
+
+        additionalCharges:
+            additionalCharges,
+
+        exchangeDeduction:
+            exchangeDeduction,
+
+        finalTotal:finalTotal,
+
+        additionalNote:
+            additionalNoteEl.value.trim(),
+
+        updatedAt:
+            new Date().toISOString()
+    };
+}
+
+
+/* =========================
+   SAVE INVOICE
+========================= */
+
+function saveInvoice(){
+
+    const invoiceNo =
+        invoiceNumberEl.value.trim();
+
+    if(!invoiceNo){
+
+        alert(
+            "Please enter an Invoice Number."
+        );
+
+        invoiceNumberEl.focus();
+
+        return;
+    }
+
+
+    if(!customerNameEl.value.trim()){
+
+        alert(
+            "Please enter Customer Name."
+        );
+
+        customerNameEl.focus();
+
+        return;
+    }
+
+
+    const invoice =
+        collectInvoice();
+
+    let invoices =
+        getInvoices();
+
+    const oldNo =
+        originalInvoiceNo;
+
+    const newNo =
+        invoice.invoiceNo;
+
+
+    /*
+       If an old invoice is loaded and
+       its number has been changed,
+       remove the old one and save the
+       invoice with the new number.
+    */
+
+    if(oldNo && oldNo !== newNo){
+
+        const conflictIndex =
+            invoices.findIndex(
+                x => x.invoiceNo === newNo
+            );
+
+        if(conflictIndex !== -1){
+
+            const replace =
+                confirm(
+                    "Invoice " +
+                    newNo +
+                    " already exists.\n\n" +
+                    "Do you want to replace it?"
+                );
+
+            if(!replace){
+                return;
+            }
+
+            invoices.splice(
+                conflictIndex,
+                1
+            );
+        }
+
+
+        const oldIndex =
+            invoices.findIndex(
+                x => x.invoiceNo === oldNo
+            );
+
+        if(oldIndex !== -1){
+
+            invoices.splice(
+                oldIndex,
+                1
+            );
+        }
+
+
+        invoices.unshift(invoice);
+
+    }
+    else{
+
+        const existingIndex =
+            invoices.findIndex(
+                x => x.invoiceNo === newNo
+            );
+
+        if(existingIndex !== -1){
+
+            invoices[existingIndex] =
+                invoice;
+
+        }
+        else{
+
+            invoices.unshift(invoice);
+
+        }
+
+    }
+
+
+    saveInvoices(invoices);
+
+    currentInvoiceNo =
+        newNo;
+
+    originalInvoiceNo =
+        newNo;
+
+    invoiceNumberEl.value =
+        newNo;
+
+    renderSavedInvoices();
+
+    alert(
+        "Invoice " +
+        newNo +
+        " saved successfully."
+    );
+}
+
+
+/* =========================
+   LOAD INVOICE
+========================= */
+
+function loadInvoice(invoiceNo){
+
+    const invoices =
+        getInvoices();
+
+    const invoice =
+        invoices.find(
+            x => x.invoiceNo === invoiceNo
+        );
+
+    if(!invoice){
+        alert("Invoice not found.");
+        return;
+    }
+
+
+    currentInvoiceNo =
+        invoice.invoiceNo;
+
+    originalInvoiceNo =
+        invoice.invoiceNo;
+
+
+    invoiceNumberEl.value =
+        invoice.invoiceNo || "";
+
+
+    customerNameEl.value =
+        invoice.customerName || "";
+
+    customerPhoneEl.value =
+        invoice.customerPhone || "";
+
+    customerAddressEl.value =
+        invoice.customerAddress || "";
+
+    invoiceDateEl.value =
+        invoice.invoiceDate || "";
+
+    invoiceTimeEl.value =
+        invoice.invoiceTime || "";
+
+
+    items =
+        Array.isArray(invoice.items) &&
+        invoice.items.length
+        ? JSON.parse(
+            JSON.stringify(invoice.items)
+          )
+        : [
+            {
+                description:"",
+                qty:1,
+                rate:0
+            }
+          ];
+
+
+    discountEl.value =
+        invoice.discount || 0;
+
+    additionalChargesEl.value =
+        invoice.additionalCharges || 0;
+
+    exchangeDeductionEl.value =
+        invoice.exchangeDeduction || 0;
+
+    additionalNoteEl.value =
+        invoice.additionalNote || "";
+
+
+    renderItems();
+
+    calculateTotal();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
+   DELETE INVOICE
+========================= */
+
+function deleteInvoice(invoiceNo){
+
+    const ok =
+        confirm(
+            "Delete invoice " +
+            invoiceNo +
+            "?"
+        );
+
+    if(!ok){
+        return;
+    }
+
+    let invoices =
+        getInvoices();
+
+    invoices =
+        invoices.filter(
+            x => x.invoiceNo !== invoiceNo
+        );
+
+    saveInvoices(invoices);
+
+    if(currentInvoiceNo === invoiceNo){
+
+        clearForm();
+    }
+
+    renderSavedInvoices();
+}
+
+
+/* =========================
+   SAVED INVOICES
+========================= */
+
+function renderSavedInvoices(){
+
+    const container =
+        document.getElementById(
+            "savedInvoices"
+        );
+
+    const search =
+        document.getElementById(
+            "searchInvoice"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    const invoices =
+        getInvoices().filter(invoice => {
+
+            if(!search){
+                return true;
+            }
+
+            return (
+
+                String(invoice.invoiceNo || "")
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                String(invoice.customerName || "")
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                String(invoice.customerPhone || "")
+                    .toLowerCase()
+                    .includes(search)
+
+            );
+
+        });
+
+
+    if(!invoices.length){
+
+        container.innerHTML =
+            `<div class="empty">
+                No saved invoices found.
+             </div>`;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        invoices.map(invoice => `
+
+            <div class="saved-item">
+
+                <div class="saved-info">
+
+                    <strong>
+                        ${escapeHTML(invoice.invoiceNo)}
+                    </strong>
+
+                    <div>
+                        ${escapeHTML(
+                            invoice.customerName ||
+                            "No customer name"
+                        )}
+                    </div>
+
+                    <small>
+                        ${escapeHTML(
+                            invoice.invoiceDate || ""
+                        )}
+                        ${escapeHTML(
+                            invoice.invoiceTime || ""
+                        )}
+                        &nbsp; | &nbsp;
+                        Rs ${money(invoice.finalTotal)}
+                    </small>
+
+                </div>
+
+
+                <div class="saved-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-blue btn-small"
+                        onclick="loadInvoice('${escapeHTML(invoice.invoiceNo)}')"
+                    >
+                        Open
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-danger btn-small"
+                        onclick="deleteInvoice('${escapeHTML(invoice.invoiceNo)}')"
+                    >
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        `).join("");
+}
+
+
+/* =========================
+   CLEAR
+========================= */
+
+function clearForm(){
+
+    currentInvoiceNo = "";
+    originalInvoiceNo = "";
+
+    customerNameEl.value = "";
+    customerPhoneEl.value = "";
+    customerAddressEl.value = "";
+
+    discountEl.value = 0;
+    additionalChargesEl.value = 0;
+    exchangeDeductionEl.value = 0;
+
+    additionalNoteEl.value = "";
+
+    items = [
+        {
+            description:"",
+            qty:1,
+            rate:0
+        }
+    ];
+
+    setCurrentDateTime();
+
+    invoiceNumberEl.value =
+        nextInvoiceNumber();
+
+    renderItems();
+
+    calculateTotal();
+
+    document.getElementById(
+        "previewSection"
+    ).style.display = "none";
+}
+
+
+/* =========================
+   PREVIEW
+========================= */
+
+function showPreview(){
+
+    const invoice =
+        collectInvoice();
+
+    if(!invoice.customerName){
+
+        alert(
+            "Please enter Customer Name first."
+        );
+
+        customerNameEl.focus();
+
+        return;
+    }
+
+
+    const itemsRows =
+        invoice.items.map(item => {
+
+            const amount =
+                (Number(item.qty) || 0) *
+                (Number(item.rate) || 0);
+
+            return `
+                <tr>
+
+                    <td>
+                        ${escapeHTML(
+                            item.description
+                        )}
+                    </td>
+
+                    <td>
+                        ${item.qty}
+                    </td>
+
+                    <td>
+                        Rs ${money(item.rate)}
+                    </td>
+
+                    <td>
+                        Rs ${money(amount)}
+                    </td>
+
+                </tr>
+            `;
+
+        }).join("");
+
+
+    const preview = `
+
+        <div class="preview-header">
+
+            <div>
+
+                <div class="preview-logo">
+                    Midea
+                </div>
+
+                <div>
+                    Air Conditioner
+                </div>
+
+            </div>
+
+
+            <div class="preview-title">
+
+                <h1>INVOICE</h1>
+
+                <div>
+                    <strong>
+                        Invoice No:
+                    </strong>
+                    ${escapeHTML(
+                        invoice.invoiceNo
+                    )}
+                </div>
+
+                <div>
+                    <strong>
+                        Date:
+                    </strong>
+                    ${escapeHTML(
+                        invoice.invoiceDate
+                    )}
+                </div>
+
+                <div>
+                    <strong>
+                        Time:
+                    </strong>
+                    ${escapeHTML(
+                        invoice.invoiceTime
+                    )}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div style="margin-bottom:20px;">
+
+            <h3 style="margin-bottom:8px;">
+                Bill To
+            </h3>
+
+            <div>
+                <strong>
+                    ${escapeHTML(
+                        invoice.customerName
+                    )}
+                </strong>
+            </div>
+
+            ${
+                invoice.customerPhone
+                ?
+                `<div>
+                    Phone:
+                    ${escapeHTML(
+                        invoice.customerPhone
+                    )}
+                </div>`
+                :
+                ""
+            }
+
+            ${
+                invoice.customerAddress
+                ?
+                `<div>
+                    Address:
+                    ${escapeHTML(
+                        invoice.customerAddress
+                    )}
+                </div>`
+                :
+                ""
+            }
+
+        </div>
+
+
+        <table class="preview-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Description
+                    </th>
+
+                    <th>
+                        Qty
+                    </th>
+
+                    <th>
+                        Rate
+                    </th>
+
+                    <th>
+                        Amount
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                ${itemsRows}
+
+            </tbody>
+
+        </table>
+
+
+        <div class="preview-summary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong>
+                    Rs ${money(invoice.subtotal)}
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Discount</span>
+                <strong>
+                    Rs ${money(invoice.discount)}
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Additional Charges</span>
+                <strong>
+                    Rs ${money(
+                        invoice.additionalCharges
+                    )}
+                </strong>
+            </div>
+
+            <div class="summary-row">
+                <span>
+                    Exchange Deduction
+                </span>
+                <strong>
+                    Rs ${money(
+                        invoice.exchangeDeduction
+                    )}
+                </strong>
+            </div>
+
+            <div class="summary-row total">
+                <span>
+                    FINAL TOTAL
+                </span>
+                <strong>
+                    Rs ${money(
+                        invoice.finalTotal
+                    )}
+                </strong>
+            </div>
+
+        </div>
+
+
+        ${
+            invoice.additionalNote
+            ?
+            `<div class="note-box">
+
+                <strong>
+                    Warranty / Additional Note
+                </strong>
+
+                <div style="margin-top:7px;">
+                    ${escapeHTML(
+                        invoice.additionalNote
+                    ).replace(/\n/g,"<br>")}
+                </div>
+
+            </div>`
+            :
+            ""
+        }
+
+
+        <div style="
+            margin-top:40px;
+            padding-top:15px;
+            border-top:1px solid #ddd;
+            text-align:center;
+            color:#666;
+            font-size:12px;
+        ">
+            Thank you for your business.
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "previewBox"
+    ).innerHTML = preview;
+
+
+    document.getElementById(
+        "previewSection"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "previewSection"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
+   PRINT
+========================= */
+
+function printInvoice(){
+
+    const invoice =
+        collectInvoice();
+
+    if(!invoice.customerName){
+
+        alert(
+            "Please enter Customer Name first."
+        );
+
+        customerNameEl.focus();
+
+        return;
+    }
+
+
+    const itemsRows =
+        invoice.items.map(item => {
+
+            const amount =
+                (Number(item.qty) || 0) *
+                (Number(item.rate) || 0);
+
+            return `
+                <tr>
+                    <td>
+                        ${escapeHTML(
+                            item.description
+                        )}
+                    </td>
+
+                    <td>
+                        ${item.qty}
+                    </td>
+
+                    <td>
+                        Rs ${money(item.rate)}
+                    </td>
+
+                    <td>
+                        Rs ${money(amount)}
+                    </td>
+                </tr>
+            `;
+
+        }).join("");
+
+
+    const printWindow =
+        window.open(
+            "",
+            "_blank"
+        );
+
+
+    if(!printWindow){
+
+        alert(
+            "Please allow pop-ups in your browser and try again."
+        );
+
+        return;
+    }
+
+
+    printWindow.document.open();
+
+
+    printWindow.document.write(`
+
+        <!DOCTYPE html>
+
+        <html>
+
+        <head>
+
+            <meta charset="UTF-8">
+
+            <title>
+                ${escapeHTML(
+                    invoice.invoiceNo
+                )}
+            </title>
+
+            <style>
+
+                *{
+                    box-sizing:border-box;
+                }
+
+                body{
+                    font-family:Arial,
+                    Helvetica,sans-serif;
+                    padding:30px;
+                    color:#111;
+                }
+
+                .header{
+                    display:flex;
+                    justify-content:space-between;
+                    border-bottom:3px solid #e60012;
+                    padding-bottom:15px;
+                    margin-bottom:20px;
+                }
+
+                .logo{
+                    font-size:40px;
+                    font-weight:900;
+                    color:#e60012;
+                }
+
+                .title{
+                    text-align:right;
+                }
+
+                .title h1{
+                    margin:0 0 7px;
+                    font-size:28px;
+                }
+
+                table{
+                    width:100%;
+                    border-collapse:collapse;
+                    margin-top:20px;
+                }
+
+                th{
+                    background:#e60012;
+                    color:#fff;
+                }
+
+                th,td{
+                    border:1px solid #ccc;
+                    padding:9px;
+                    text-align:left;
+                }
+
+                .summary{
+                    width:350px;
+                    margin-left:auto;
+                    margin-top:20px;
+                }
+
+                .row{
+                    display:flex;
+                    justify-content:space-between;
+                    padding:8px;
+                    border-bottom:1px solid #ddd;
+                }
+
+                .total{
+                    background:#111;
+                    color:#fff;
+                    font-size:19px;
+                    font-weight:bold;
+                }
+
+                .note{
+                    margin-top:25px;
+                    padding:12px;
+                    border-left:4px solid #e60012;
+                    background:#f5f5f5;
+                }
+
+                .footer{
+                    text-align:center;
+                    margin-top:45px;
+                    font-size:12px;
+                    color:#777;
+                }
+
+                @media print{
+
+                    body{
+                        padding:15px;
+                    }
+
+                }
+
+            </style>
+
+        </head>
+
+        <body>
+
+            <div class="header">
+
+                <div>
+
+                    <div class="logo">
+                        Midea
+                    </div>
+
+                    <div>
+                        Air Conditioner
+                    </div>
+
+                </div>
+
+
+                <div class="title">
+
+                    <h1>
+                        INVOICE
+                    </h1>
+
+                    <div>
+                        <strong>
+                            Invoice No:
+                        </strong>
+                        ${escapeHTML(
+                            invoice.invoiceNo
+                        )}
+                    </div>
+
+                    <div>
+                        <strong>
+                            Date:
+                        </strong>
+                        ${escapeHTML(
+                            invoice.invoiceDate
+                        )}
+                    </div>
+
+                    <div>
+                        <strong>
+                            Time:
+                        </strong>
+                        ${escapeHTML(
+                            invoice.invoiceTime
+                        )}
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Bill To
+                </h3>
+
+                <p>
+                    <strong>
+                        ${escapeHTML(
+                            invoice.customerName
+                        )}
+                    </strong>
+                </p>
+
+                ${
+                    invoice.customerPhone
+                    ?
+                    `<p>
+                        Phone:
+                        ${escapeHTML(
+                            invoice.customerPhone
+                        )}
+                    </p>`
+                    :
+                    ""
+                }
+
+                ${
+                    invoice.customerAddress
+                    ?
+                    `<p>
+                        Address:
+                        ${escapeHTML(
+                            invoice.customerAddress
+                        )}
+                    </p>`
+                    :
+                    ""
+                }
+
+            </div>
+
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Description
+                        </th>
+
+                        <th>
+                            Qty
+                        </th>
+
+                        <th>
+                            Rate
+                        </th>
+
+                        <th>
+                            Amount
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    ${itemsRows}
+
+                </tbody>
+
+            </table>
+
+
+            <div class="summary">
+
+                <div class="row">
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong>
+                        Rs ${money(
+                            invoice.subtotal
+                        )}
+                    </strong>
+                </div>
+
+
+                <div class="row">
+                    <span>
+                        Discount
+                    </span>
+
+                    <strong>
+                        Rs ${money(
+                            invoice.discount
+                        )}
+                    </strong>
+                </div>
+
+
+                <div class="row">
+                    <span>
+                        Additional Charges
+                    </span>
+
+                    <strong>
+                        Rs ${money(
+                            invoice.additionalCharges
+                        )}
+                    </strong>
+                </div>
+
+
+                <div class="row">
+                    <span>
+                        Exchange Deduction
+                    </span>
+
+                    <strong>
+                        Rs ${money(
+                            invoice.exchangeDeduction
+                        )}
+                    </strong>
+                </div>
+
+
+                <div class="row total">
+
+                    <span>
+                        FINAL TOTAL
+                    </span>
+
+                    <strong>
+                        Rs ${money(
+                            invoice.finalTotal
+                        )}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            ${
+                invoice.additionalNote
+                ?
+                `<div class="note">
+
+                    <strong>
+                        Warranty / Additional Note
+                    </strong>
+
+                    <div style="margin-top:7px;">
+                        ${escapeHTML(
+                            invoice.additionalNote
+                        ).replace(/\n/g,"<br>")}
+                    </div>
+
+                </div>`
+                :
+                ""
+            }
+
+
+            <div class="footer">
+                Thank you for your business.
+            </div>
+
+
+            <script>
+
+                window.onload = function(){
+
+                    setTimeout(function(){
+
+                        window.print();
+
+                    },300);
+
+                };
+
+            <\/script>
+
+
+        </body>
+
+        </html>
+
+    `);
+
+
+    printWindow.document.close();
+
+}
+
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function sendWhatsApp(){
+
+    const invoice =
+        collectInvoice();
+
+    if(!invoice.customerPhone){
+
+        alert(
+            "Please enter customer phone number."
+        );
+
+        customerPhoneEl.focus();
+
+        return;
+    }
+
+
+    const itemLines =
+        invoice.items
+        .filter(item =>
+            item.description ||
+            Number(item.rate) ||
+            Number(item.qty)
+        )
+        .map(item => {
+
+            const amount =
+                (Number(item.qty) || 0) *
+                (Number(item.rate) || 0);
+
+            return (
+                "• " +
+                (item.description || "Item") +
+                " | Qty: " +
+                item.qty +
+                " | Rs " +
+                money(amount)
+            );
+
+        })
+        .join("\n");
+
+
+    let message =
+`*MIDEA AC INVOICE*
+
+Invoice No: ${invoice.invoiceNo}
+Date: ${invoice.invoiceDate}
+Time: ${invoice.invoiceTime}
+
+Customer: ${invoice.customerName}
+Phone: ${invoice.customerPhone}
+${invoice.customerAddress
+    ? "Address: " + invoice.customerAddress + "\n"
+    : ""}
+
+*Items:*
+${itemLines}
+
+Subtotal: Rs ${money(invoice.subtotal)}
+Discount: Rs ${money(invoice.discount)}
+Additional Charges: Rs ${money(invoice.additionalCharges)}
+Exchange Deduction: Rs ${money(invoice.exchangeDeduction)}
+
+*FINAL TOTAL: Rs ${money(invoice.finalTotal)}*`;
+
+
+    if(invoice.additionalNote){
+
+        message +=
+            "\n\n*Warranty / Note:*\n" +
+            invoice.additionalNote;
+    }
+
+
+    const phone =
+        invoice.customerPhone
+            .replace(/\D/g,"");
+
+
+    let whatsappNumber =
+        phone;
+
+
+    if(phone.startsWith("0")){
+
+        whatsappNumber =
+            "92" + phone.substring(1);
+
+    }
+
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+}
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+setCurrentDateTime();
+
+renderItems();
+
+calculateTotal();
+
+renderSavedInvoices();
+
+</script>
+
+</body>
+</html>
