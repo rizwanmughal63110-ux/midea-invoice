@@ -14,8 +14,8 @@
 
 body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#f2f4f7;
-    color:#111827;
+    background:#f3f6fa;
+    color:#172033;
 }
 
 button,
@@ -25,13 +25,13 @@ textarea{
 }
 
 .header{
-    background:#e60012;
-    color:white;
+    background:#005bac;
+    color:#fff;
     padding:18px 20px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    box-shadow:0 2px 9px rgba(0,0,0,.15);
 }
 
 .logo{
@@ -41,13 +41,15 @@ textarea{
 }
 
 .logo-box{
-    background:white;
-    color:#e60012;
-    font-size:30px;
+    background:#005bac;
+    border:2px solid #fff;
+    color:#fff;
+    font-size:29px;
     font-weight:900;
     padding:5px 13px;
-    border-radius:5px;
+    border-radius:3px;
     letter-spacing:-1px;
+    line-height:1;
 }
 
 .logo-text{
@@ -62,7 +64,7 @@ textarea{
 }
 
 .card{
-    background:white;
+    background:#fff;
     border-radius:12px;
     padding:20px;
     margin-bottom:20px;
@@ -72,8 +74,8 @@ textarea{
 .card h2{
     font-size:19px;
     margin-bottom:18px;
-    color:#111827;
-    border-bottom:2px solid #e60012;
+    color:#005bac;
+    border-bottom:2px solid #005bac;
     padding-bottom:8px;
 }
 
@@ -94,18 +96,18 @@ textarea{
 input,
 textarea{
     width:100%;
-    border:1px solid #d1d5db;
+    border:1px solid #cbd5e1;
     border-radius:7px;
     padding:11px;
     font-size:15px;
     outline:none;
-    background:white;
+    background:#fff;
 }
 
 input:focus,
 textarea:focus{
-    border-color:#e60012;
-    box-shadow:0 0 0 2px rgba(230,0,18,.08);
+    border-color:#005bac;
+    box-shadow:0 0 0 2px rgba(0,91,172,.10);
 }
 
 textarea{
@@ -137,34 +139,29 @@ textarea{
     font-weight:bold;
 }
 
-.btn-red{
-    background:#e60012;
-    color:white;
+.btn-blue{
+    background:#005bac;
+    color:#fff;
 }
 
-.btn-black{
-    background:#111827;
-    color:white;
+.btn-dark{
+    background:#172033;
+    color:#fff;
 }
 
 .btn-green{
     background:#16a34a;
-    color:white;
-}
-
-.btn-blue{
-    background:#2563eb;
-    color:white;
+    color:#fff;
 }
 
 .btn-gray{
-    background:#6b7280;
-    color:white;
+    background:#64748b;
+    color:#fff;
 }
 
 .btn-danger{
     background:#dc2626;
-    color:white;
+    color:#fff;
 }
 
 .btn-small{
@@ -187,15 +184,15 @@ table{
 }
 
 th{
-    background:#111827;
-    color:white;
+    background:#005bac;
+    color:#fff;
     padding:11px 8px;
     font-size:13px;
     text-align:left;
 }
 
 td{
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:1px solid #e2e8f0;
     padding:8px;
     vertical-align:middle;
 }
@@ -207,11 +204,12 @@ td input{
 .item-amount{
     font-weight:bold;
     white-space:nowrap;
+    color:#005bac;
 }
 
 .remove-btn{
     background:#dc2626;
-    color:white;
+    color:#fff;
     border:0;
     border-radius:6px;
     padding:8px 10px;
@@ -233,7 +231,7 @@ td input{
     max-width:430px;
     margin-left:auto;
     margin-top:20px;
-    border:1px solid #e5e7eb;
+    border:1px solid #dbe3ec;
     border-radius:10px;
     overflow:hidden;
 }
@@ -242,7 +240,7 @@ td input{
     display:flex;
     justify-content:space-between;
     padding:11px 14px;
-    border-bottom:1px solid #e5e7eb;
+    border-bottom:1px solid #e2e8f0;
 }
 
 .summary-row:last-child{
@@ -250,8 +248,8 @@ td input{
 }
 
 .summary-row.total{
-    background:#111827;
-    color:white;
+    background:#005bac;
+    color:#fff;
     font-size:20px;
     font-weight:bold;
 }
@@ -268,7 +266,7 @@ td input{
 }
 
 .saved-item{
-    border:1px solid #e5e7eb;
+    border:1px solid #dbe3ec;
     border-radius:9px;
     padding:13px;
     margin-bottom:10px;
@@ -282,6 +280,7 @@ td input{
 .saved-info strong{
     display:block;
     margin-bottom:4px;
+    color:#005bac;
 }
 
 .saved-info small{
@@ -301,24 +300,34 @@ td input{
 }
 
 .preview-box{
-    border:1px solid #ddd;
+    border:1px solid #d8e0e9;
     padding:30px;
-    background:white;
+    background:#fff;
 }
 
 .preview-header{
     display:flex;
     justify-content:space-between;
     align-items:flex-start;
-    border-bottom:3px solid #e60012;
+    border-bottom:3px solid #005bac;
     padding-bottom:15px;
     margin-bottom:20px;
 }
 
 .preview-logo{
-    font-size:38px;
+    display:inline-block;
+    background:#005bac;
+    color:#fff;
+    font-size:34px;
     font-weight:900;
-    color:#e60012;
+    padding:6px 13px;
+    border-radius:3px;
+}
+
+.preview-company{
+    margin-top:7px;
+    color:#475569;
+    font-size:14px;
 }
 
 .preview-title{
@@ -327,6 +336,8 @@ td input{
 
 .preview-title h1{
     font-size:25px;
+    color:#005bac;
+    margin-bottom:8px;
 }
 
 .preview-table{
@@ -336,12 +347,12 @@ td input{
 }
 
 .preview-table th{
-    background:#e60012;
+    background:#005bac;
 }
 
 .preview-table td,
 .preview-table th{
-    border:1px solid #ddd;
+    border:1px solid #d5dde7;
     padding:8px;
 }
 
@@ -353,12 +364,22 @@ td input{
 
 .note-box{
     margin-top:25px;
-    border-left:4px solid #e60012;
-    background:#f9fafb;
+    border-left:4px solid #005bac;
+    background:#f5f8fc;
     padding:12px;
 }
 
+.footer-line{
+    margin-top:35px;
+    padding-top:15px;
+    border-top:1px solid #d8e0e9;
+    text-align:center;
+    color:#64748b;
+    font-size:12px;
+}
+
 @media(max-width:700px){
+
     .container{
         padding:10px;
     }
@@ -410,13 +431,13 @@ td input{
 }
 
 @media print{
+
     body{
-        background:white;
+        background:#fff;
     }
 
     .header,
     .no-print,
-    .actions,
     .saved-card{
         display:none !important;
     }
@@ -442,24 +463,40 @@ td input{
 <body>
 
 <header class="header no-print">
+
     <div class="logo">
-        <div class="logo-box">Midea</div>
-        <div class="logo-text">AC Invoice Manager</div>
+
+        <div class="logo-box">
+            Midea
+        </div>
+
+        <div class="logo-text">
+            AC Invoice Manager
+        </div>
+
     </div>
+
 </header>
+
 
 <div class="container">
 
     <!-- CUSTOMER INFORMATION -->
+
     <div class="card no-print">
+
         <h2>Customer Information</h2>
 
         <div class="grid">
 
             <div class="field">
-                <label>Invoice Number *</label>
+
+                <label>
+                    Invoice Number *
+                </label>
 
                 <div class="invoice-number-row">
+
                     <input
                         type="text"
                         id="invoiceNumber"
@@ -469,106 +506,175 @@ td input{
 
                     <button
                         type="button"
-                        class="btn btn-black btn-small"
+                        class="btn btn-dark btn-small"
                         onclick="setNextInvoiceNumber()"
                     >
                         Next
                     </button>
+
                 </div>
 
                 <div class="hint">
                     Invoice number can be edited before saving.
                 </div>
+
             </div>
 
+
             <div class="field">
-                <label>Customer Name *</label>
+
+                <label>
+                    Customer Name *
+                </label>
+
                 <input
                     type="text"
                     id="customerName"
                     placeholder="Customer Name"
                     autocomplete="name"
                 >
+
             </div>
 
+
             <div class="field">
-                <label>Customer Phone</label>
+
+                <label>
+                    Customer Phone
+                </label>
+
                 <input
                     type="tel"
                     id="customerPhone"
                     placeholder="03XXXXXXXXX"
                     autocomplete="tel"
                 >
+
             </div>
 
+
             <div class="field">
-                <label>Address</label>
+
+                <label>
+                    Address
+                </label>
+
                 <input
                     type="text"
                     id="customerAddress"
                     placeholder="Customer Address"
                     autocomplete="street-address"
                 >
+
             </div>
 
+
             <div class="field">
-                <label>Invoice Date</label>
+
+                <label>
+                    Invoice Date
+                </label>
+
                 <input
                     type="date"
                     id="invoiceDate"
                 >
+
             </div>
 
+
             <div class="field">
-                <label>Invoice Time</label>
+
+                <label>
+                    Invoice Time
+                </label>
+
                 <input
                     type="time"
                     id="invoiceTime"
                 >
+
             </div>
 
         </div>
+
     </div>
 
 
     <!-- ITEMS -->
+
     <div class="card no-print">
-        <h2>Parts / Services</h2>
+
+        <h2>
+            Parts / Services
+        </h2>
 
         <div class="table-wrap">
+
             <table>
+
                 <thead>
+
                     <tr>
-                        <th style="width:45%">Description</th>
-                        <th style="width:12%">Qty</th>
-                        <th style="width:18%">Rate</th>
-                        <th style="width:17%">Amount</th>
-                        <th style="width:8%">Action</th>
+
+                        <th style="width:45%">
+                            Description
+                        </th>
+
+                        <th style="width:12%">
+                            Qty
+                        </th>
+
+                        <th style="width:18%">
+                            Rate
+                        </th>
+
+                        <th style="width:17%">
+                            Amount
+                        </th>
+
+                        <th style="width:8%">
+                            Action
+                        </th>
+
                     </tr>
+
                 </thead>
 
                 <tbody id="itemsBody"></tbody>
+
             </table>
+
         </div>
+
 
         <button
             type="button"
-            class="btn btn-black add-item"
+            class="btn btn-dark add-item"
             onclick="addItem()"
         >
             + Add Item
         </button>
+
     </div>
 
 
     <!-- ADJUSTMENTS -->
+
     <div class="card no-print">
-        <h2>Adjustments</h2>
+
+        <h2>
+            Adjustments
+        </h2>
 
         <div class="adjustments">
 
             <div class="field">
-                <label>Discount (Rs)</label>
+
+                <label>
+                    Discount (Rs)
+                </label>
+
                 <input
                     type="number"
                     id="discount"
@@ -577,10 +683,16 @@ td input{
                     step="1"
                     oninput="calculateTotal()"
                 >
+
             </div>
 
+
             <div class="field">
-                <label>Additional Charges (Rs)</label>
+
+                <label>
+                    Additional Charges (Rs)
+                </label>
+
                 <input
                     type="number"
                     id="additionalCharges"
@@ -589,10 +701,16 @@ td input{
                     step="1"
                     oninput="calculateTotal()"
                 >
+
             </div>
 
+
             <div class="field">
-                <label>Customer Purchase / Exchange Deduction (Rs)</label>
+
+                <label>
+                    Customer Purchase / Exchange Deduction (Rs)
+                </label>
+
                 <input
                     type="number"
                     id="exchangeDeduction"
@@ -601,6 +719,7 @@ td input{
                     step="1"
                     oninput="calculateTotal()"
                 >
+
             </div>
 
         </div>
@@ -609,73 +728,122 @@ td input{
         <div class="summary">
 
             <div class="summary-row">
-                <span>Subtotal</span>
-                <strong id="subtotal">Rs 0</strong>
+
+                <span>
+                    Subtotal
+                </span>
+
+                <strong id="subtotal">
+                    Rs 0
+                </strong>
+
             </div>
 
-            <div class="summary-row">
-                <span>Discount</span>
-                <strong id="discountTotal">Rs 0</strong>
-            </div>
 
             <div class="summary-row">
-                <span>Additional Charges</span>
-                <strong id="additionalTotal">Rs 0</strong>
+
+                <span>
+                    Discount
+                </span>
+
+                <strong id="discountTotal">
+                    Rs 0
+                </strong>
+
             </div>
 
+
             <div class="summary-row">
-                <span>Exchange / Purchase Deduction</span>
-                <strong id="deductionTotal">Rs 0</strong>
+
+                <span>
+                    Additional Charges
+                </span>
+
+                <strong id="additionalTotal">
+                    Rs 0
+                </strong>
+
             </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Exchange / Purchase Deduction
+                </span>
+
+                <strong id="deductionTotal">
+                    Rs 0
+                </strong>
+
+            </div>
+
 
             <div class="summary-row total">
-                <span>FINAL TOTAL</span>
-                <strong id="finalTotal">Rs 0</strong>
+
+                <span>
+                    FINAL TOTAL
+                </span>
+
+                <strong id="finalTotal">
+                    Rs 0
+                </strong>
+
             </div>
 
         </div>
+
     </div>
 
 
     <!-- NOTES -->
+
     <div class="card no-print">
-        <h2>Warranty / Additional Note</h2>
+
+        <h2>
+            Warranty / Additional Note
+        </h2>
 
         <textarea
             id="additionalNote"
             placeholder="Example: 5 year compressor warranty..."
         ></textarea>
+
     </div>
 
 
     <!-- ACTIONS -->
+
     <div class="card no-print">
 
         <div class="actions">
 
             <button
                 type="button"
-                class="btn btn-red"
+                class="btn btn-blue"
                 onclick="saveInvoice()"
             >
                 Save Invoice
             </button>
 
+
             <button
                 type="button"
-                class="btn btn-blue"
+                class="btn btn-dark"
                 onclick="showPreview()"
             >
                 Preview
             </button>
 
+
             <button
                 type="button"
-                class="btn btn-black"
+                class="btn btn-blue"
                 onclick="printInvoice()"
             >
                 Print / Save PDF
             </button>
+
 
             <button
                 type="button"
@@ -684,6 +852,7 @@ td input{
             >
                 WhatsApp
             </button>
+
 
             <button
                 type="button"
@@ -699,9 +868,12 @@ td input{
 
 
     <!-- SAVED INVOICES -->
+
     <div class="card saved-card no-print">
 
-        <h2>Saved Invoices</h2>
+        <h2>
+            Saved Invoices
+        </h2>
 
         <input
             class="saved-search"
@@ -717,13 +889,17 @@ td input{
 
 
     <!-- PREVIEW -->
+
     <div
         class="card"
         id="previewSection"
         style="display:none;"
     >
 
-        <div class="preview-box" id="previewBox"></div>
+        <div
+            class="preview-box"
+            id="previewBox"
+        ></div>
 
     </div>
 
@@ -732,7 +908,9 @@ td input{
 
 <script>
 
-const STORAGE_KEY = "midea_ac_invoice_manager_v1";
+const STORAGE_KEY =
+    "midea_ac_invoice_manager_v1";
+
 
 let items = [
     {
@@ -742,59 +920,82 @@ let items = [
     }
 ];
 
+
 let currentInvoiceNo = "";
 let originalInvoiceNo = "";
 
 
-/* =========================
-   ELEMENTS
-========================= */
+/* ELEMENTS */
 
 const invoiceNumberEl =
-    document.getElementById("invoiceNumber");
+    document.getElementById(
+        "invoiceNumber"
+    );
 
 const customerNameEl =
-    document.getElementById("customerName");
+    document.getElementById(
+        "customerName"
+    );
 
 const customerPhoneEl =
-    document.getElementById("customerPhone");
+    document.getElementById(
+        "customerPhone"
+    );
 
 const customerAddressEl =
-    document.getElementById("customerAddress");
+    document.getElementById(
+        "customerAddress"
+    );
 
 const invoiceDateEl =
-    document.getElementById("invoiceDate");
+    document.getElementById(
+        "invoiceDate"
+    );
 
 const invoiceTimeEl =
-    document.getElementById("invoiceTime");
+    document.getElementById(
+        "invoiceTime"
+    );
 
 const discountEl =
-    document.getElementById("discount");
+    document.getElementById(
+        "discount"
+    );
 
 const additionalChargesEl =
-    document.getElementById("additionalCharges");
+    document.getElementById(
+        "additionalCharges"
+    );
 
 const exchangeDeductionEl =
-    document.getElementById("exchangeDeduction");
+    document.getElementById(
+        "exchangeDeduction"
+    );
 
 const additionalNoteEl =
-    document.getElementById("additionalNote");
+    document.getElementById(
+        "additionalNote"
+    );
 
 const itemsBody =
-    document.getElementById("itemsBody");
+    document.getElementById(
+        "itemsBody"
+    );
 
 
-/* =========================
-   HELPERS
-========================= */
+/* HELPERS */
 
 function money(value){
 
-    value = Number(value) || 0;
+    value =
+        Number(value) || 0;
 
-    return value.toLocaleString("en-PK", {
-        maximumFractionDigits:2
-    });
+    return value.toLocaleString(
+        "en-PK",
+        {
+            maximumFractionDigits:2
+        }
+    );
 }
 
 
@@ -812,12 +1013,18 @@ function escapeHTML(value){
 function getInvoices(){
 
     try{
+
         return JSON.parse(
-            localStorage.getItem(STORAGE_KEY)
+            localStorage.getItem(
+                STORAGE_KEY
+            )
         ) || [];
+
     }
     catch(error){
+
         return [];
+
     }
 }
 
@@ -831,35 +1038,49 @@ function saveInvoices(invoices){
 }
 
 
-/* =========================
-   INVOICE NUMBER
-========================= */
+/* INVOICE NUMBER */
 
 function nextInvoiceNumber(){
 
-    const invoices = getInvoices();
+    const invoices =
+        getInvoices();
 
     let highest = 0;
 
+
     invoices.forEach(invoice => {
 
-        const match = String(invoice.invoiceNo || "")
-            .match(/(\d+)$/);
+        const match =
+            String(
+                invoice.invoiceNo || ""
+            ).match(/(\d+)$/);
+
 
         if(match){
 
             const number =
-                parseInt(match[1],10);
+                parseInt(
+                    match[1],
+                    10
+                );
+
 
             if(number > highest){
                 highest = number;
             }
+
         }
 
     });
 
+
     return "MIDEA-" +
-        String(highest + 1).padStart(5,"0");
+        String(
+            highest + 1
+        ).padStart(
+            5,
+            "0"
+        );
 }
 
 
@@ -873,32 +1094,49 @@ function setNextInvoiceNumber(){
 }
 
 
-/* =========================
-   DATE / TIME
-========================= */
+/* DATE / TIME */
 
 function setCurrentDateTime(){
 
-    const now = new Date();
+    const now =
+        new Date();
+
 
     const year =
         now.getFullYear();
 
     const month =
-        String(now.getMonth()+1)
-        .padStart(2,"0");
+        String(
+            now.getMonth()+1
+        ).padStart(
+            2,
+            "0"
+        );
 
     const day =
-        String(now.getDate())
-        .padStart(2,"0");
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
 
     const hours =
-        String(now.getHours())
-        .padStart(2,"0");
+        String(
+            now.getHours()
+        ).padStart(
+            2,
+            "0"
+        );
 
     const minutes =
-        String(now.getMinutes())
-        .padStart(2,"0");
+        String(
+            now.getMinutes()
+        ).padStart(
+            2,
+            "0"
+        );
+
 
     invoiceDateEl.value =
         `${year}-${month}-${day}`;
@@ -906,85 +1144,116 @@ function setCurrentDateTime(){
     invoiceTimeEl.value =
         `${hours}:${minutes}`;
 
-    if(!invoiceNumberEl.value.trim()){
+
+    if(
+        !invoiceNumberEl.value.trim()
+    ){
 
         invoiceNumberEl.value =
             nextInvoiceNumber();
+
     }
 }
 
 
-/* =========================
-   ITEMS
-========================= */
+/* ITEMS */
 
 function renderItems(){
 
     itemsBody.innerHTML = "";
 
-    items.forEach((item,index) => {
 
-        const qty =
-            Number(item.qty) || 0;
+    items.forEach(
+        (item,index) => {
 
-        const rate =
-            Number(item.rate) || 0;
+            const qty =
+                Number(item.qty) || 0;
 
-        const amount =
-            qty * rate;
+            const rate =
+                Number(item.rate) || 0;
 
-        const row =
-            document.createElement("tr");
+            const amount =
+                qty * rate;
 
-        row.innerHTML = `
-            <td>
-                <input
-                    type="text"
-                    value="${escapeHTML(item.description)}"
-                    placeholder="Part / Service Description"
-                    autocomplete="off"
-                    oninput="updateItem(${index}, 'description', this.value)"
-                >
-            </td>
 
-            <td>
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    value="${qty}"
-                    oninput="updateItem(${index}, 'qty', this.value)"
-                >
-            </td>
+            const row =
+                document.createElement(
+                    "tr"
+                );
 
-            <td>
-                <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    value="${rate}"
-                    oninput="updateItem(${index}, 'rate', this.value)"
-                >
-            </td>
 
-            <td class="item-amount">
-                Rs ${money(amount)}
-            </td>
+            row.innerHTML = `
 
-            <td>
-                <button
-                    type="button"
-                    class="remove-btn"
-                    onclick="removeItem(${index})"
-                >
-                    ×
-                </button>
-            </td>
-        `;
+                <td>
 
-        itemsBody.appendChild(row);
+                    <input
+                        type="text"
+                        value="${escapeHTML(
+                            item.description
+                        )}"
+                        placeholder="Part / Service Description"
+                        autocomplete="off"
+                        oninput="updateItem(${index}, 'description', this.value)"
+                    >
 
-    });
+                </td>
+
+
+                <td>
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        value="${qty}"
+                        oninput="updateItem(${index}, 'qty', this.value)"
+                    >
+
+                </td>
+
+
+                <td>
+
+                    <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        value="${rate}"
+                        oninput="updateItem(${index}, 'rate', this.value)"
+                    >
+
+                </td>
+
+
+                <td class="item-amount">
+
+                    Rs ${money(amount)}
+
+                </td>
+
+
+                <td>
+
+                    <button
+                        type="button"
+                        class="remove-btn"
+                        onclick="removeItem(${index})"
+                    >
+                        ×
+                    </button>
+
+                </td>
+
+            `;
+
+
+            itemsBody.appendChild(
+                row
+            );
+
+        }
+    );
+
 
     calculateTotal();
 }
@@ -992,20 +1261,23 @@ function renderItems(){
 
 /*
 IMPORTANT:
-Do NOT renderItems() here after every keystroke.
+The whole item table is NOT re-rendered
+while typing.
 
-If the whole table is recreated while the user is typing,
-Android/mobile browsers can close the keyboard and remove
-the cursor.
-
-We only update the amount cell now.
+This keeps the Android keyboard and
+cursor active.
 */
 
-function updateItem(index,key,value){
+function updateItem(
+    index,
+    key,
+    value
+){
 
     if(!items[index]){
         return;
     }
+
 
     if(key === "description"){
 
@@ -1030,21 +1302,39 @@ function updateItem(index,key,value){
     const row =
         itemsBody.children[index];
 
+
     if(row){
 
         const amount =
-            (Number(items[index].qty) || 0) *
-            (Number(items[index].rate) || 0);
+            (
+                Number(
+                    items[index].qty
+                ) || 0
+            )
+            *
+            (
+                Number(
+                    items[index].rate
+                ) || 0
+            );
+
 
         const amountCell =
-            row.querySelector(".item-amount");
+            row.querySelector(
+                ".item-amount"
+            );
+
 
         if(amountCell){
 
             amountCell.textContent =
-                "Rs " + money(amount);
+                "Rs " +
+                money(amount);
+
         }
+
     }
+
 
     calculateTotal();
 }
@@ -1058,25 +1348,38 @@ function addItem(){
         rate:0
     });
 
+
     renderItems();
 
-    setTimeout(() => {
 
-        const rows =
-            itemsBody.querySelectorAll("tr");
+    setTimeout(
+        () => {
 
-        if(rows.length){
+            const rows =
+                itemsBody.querySelectorAll(
+                    "tr"
+                );
 
-            const lastInput =
-                rows[rows.length-1]
-                .querySelector("input");
 
-            if(lastInput){
-                lastInput.focus();
+            if(rows.length){
+
+                const lastInput =
+                    rows[
+                        rows.length - 1
+                    ].querySelector(
+                        "input"
+                    );
+
+
+                if(lastInput){
+                    lastInput.focus();
+                }
+
             }
-        }
 
-    },50);
+        },
+        50
+    );
 }
 
 
@@ -1093,165 +1396,245 @@ function removeItem(index){
     }
     else{
 
-        items.splice(index,1);
+        items.splice(
+            index,
+            1
+        );
 
     }
+
 
     renderItems();
 }
 
 
-/* =========================
-   TOTAL
-========================= */
+/* TOTAL */
 
 function calculateTotal(){
 
     let subtotal = 0;
 
+
     items.forEach(item => {
 
         subtotal +=
-            (Number(item.qty) || 0) *
-            (Number(item.rate) || 0);
+            (
+                Number(item.qty) || 0
+            )
+            *
+            (
+                Number(item.rate) || 0
+            );
 
     });
 
+
     const discount =
-        Number(discountEl.value) || 0;
+        Number(
+            discountEl.value
+        ) || 0;
+
 
     const additional =
-        Number(additionalChargesEl.value) || 0;
+        Number(
+            additionalChargesEl.value
+        ) || 0;
+
 
     const deduction =
-        Number(exchangeDeductionEl.value) || 0;
+        Number(
+            exchangeDeductionEl.value
+        ) || 0;
+
 
     let finalTotal =
-        subtotal -
-        discount +
-        additional -
+        subtotal
+        -
+        discount
+        +
+        additional
+        -
         deduction;
+
 
     if(finalTotal < 0){
         finalTotal = 0;
     }
 
-    document.getElementById("subtotal")
-        .textContent =
-        "Rs " + money(subtotal);
 
-    document.getElementById("discountTotal")
-        .textContent =
-        "Rs " + money(discount);
+    document.getElementById(
+        "subtotal"
+    ).textContent =
+        "Rs " +
+        money(subtotal);
 
-    document.getElementById("additionalTotal")
-        .textContent =
-        "Rs " + money(additional);
 
-    document.getElementById("deductionTotal")
-        .textContent =
-        "Rs " + money(deduction);
+    document.getElementById(
+        "discountTotal"
+    ).textContent =
+        "Rs " +
+        money(discount);
 
-    document.getElementById("finalTotal")
-        .textContent =
-        "Rs " + money(finalTotal);
+
+    document.getElementById(
+        "additionalTotal"
+    ).textContent =
+        "Rs " +
+        money(additional);
+
+
+    document.getElementById(
+        "deductionTotal"
+    ).textContent =
+        "Rs " +
+        money(deduction);
+
+
+    document.getElementById(
+        "finalTotal"
+    ).textContent =
+        "Rs " +
+        money(finalTotal);
 }
 
 
-/* =========================
-   COLLECT INVOICE
-========================= */
+/* COLLECT */
 
 function collectInvoice(){
 
     const typedNumber =
         invoiceNumberEl.value.trim();
 
+
     const invoiceNo =
-        typedNumber ||
-        currentInvoiceNo ||
+        typedNumber
+        ||
+        currentInvoiceNo
+        ||
         nextInvoiceNumber();
 
+
     let subtotal = 0;
+
 
     items.forEach(item => {
 
         subtotal +=
-            (Number(item.qty) || 0) *
-            (Number(item.rate) || 0);
+            (
+                Number(item.qty) || 0
+            )
+            *
+            (
+                Number(item.rate) || 0
+            );
 
     });
 
+
     const discount =
-        Number(discountEl.value) || 0;
+        Number(
+            discountEl.value
+        ) || 0;
+
 
     const additionalCharges =
-        Number(additionalChargesEl.value) || 0;
+        Number(
+            additionalChargesEl.value
+        ) || 0;
+
 
     const exchangeDeduction =
-        Number(exchangeDeductionEl.value) || 0;
+        Number(
+            exchangeDeductionEl.value
+        ) || 0;
+
 
     let finalTotal =
-        subtotal -
-        discount +
-        additionalCharges -
+        subtotal
+        -
+        discount
+        +
+        additionalCharges
+        -
         exchangeDeduction;
+
 
     if(finalTotal < 0){
         finalTotal = 0;
     }
 
+
     return {
 
-        invoiceNo:invoiceNo,
+        invoiceNo:
+
+            invoiceNo,
 
         customerName:
+
             customerNameEl.value.trim(),
 
         customerPhone:
+
             customerPhoneEl.value.trim(),
 
         customerAddress:
+
             customerAddressEl.value.trim(),
 
         invoiceDate:
+
             invoiceDateEl.value,
 
         invoiceTime:
+
             invoiceTimeEl.value,
 
         items:
-            JSON.parse(JSON.stringify(items)),
 
-        subtotal:subtotal,
+            JSON.parse(
+                JSON.stringify(items)
+            ),
 
-        discount:discount,
+        subtotal:
+
+            subtotal,
+
+        discount:
+
+            discount,
 
         additionalCharges:
+
             additionalCharges,
 
         exchangeDeduction:
+
             exchangeDeduction,
 
-        finalTotal:finalTotal,
+        finalTotal:
+
+            finalTotal,
 
         additionalNote:
+
             additionalNoteEl.value.trim(),
 
         updatedAt:
+
             new Date().toISOString()
+
     };
 }
 
 
-/* =========================
-   SAVE INVOICE
-========================= */
+/* SAVE */
 
 function saveInvoice(){
 
     const invoiceNo =
         invoiceNumberEl.value.trim();
+
 
     if(!invoiceNo){
 
@@ -1265,7 +1648,9 @@ function saveInvoice(){
     }
 
 
-    if(!customerNameEl.value.trim()){
+    if(
+        !customerNameEl.value.trim()
+    ){
 
         alert(
             "Please enter Customer Name."
@@ -1280,31 +1665,35 @@ function saveInvoice(){
     const invoice =
         collectInvoice();
 
+
     let invoices =
         getInvoices();
 
+
     const oldNo =
         originalInvoiceNo;
+
 
     const newNo =
         invoice.invoiceNo;
 
 
-    /*
-       If an old invoice is loaded and
-       its number has been changed,
-       remove the old one and save the
-       invoice with the new number.
-    */
-
-    if(oldNo && oldNo !== newNo){
+    if(
+        oldNo &&
+        oldNo !== newNo
+    ){
 
         const conflictIndex =
             invoices.findIndex(
-                x => x.invoiceNo === newNo
+                x =>
+                    x.invoiceNo ===
+                    newNo
             );
 
-        if(conflictIndex !== -1){
+
+        if(
+            conflictIndex !== -1
+        ){
 
             const replace =
                 confirm(
@@ -1314,9 +1703,11 @@ function saveInvoice(){
                     "Do you want to replace it?"
                 );
 
+
             if(!replace){
                 return;
             }
+
 
             invoices.splice(
                 conflictIndex,
@@ -1327,8 +1718,11 @@ function saveInvoice(){
 
         const oldIndex =
             invoices.findIndex(
-                x => x.invoiceNo === oldNo
+                x =>
+                    x.invoiceNo ===
+                    oldNo
             );
+
 
         if(oldIndex !== -1){
 
@@ -1336,35 +1730,49 @@ function saveInvoice(){
                 oldIndex,
                 1
             );
+
         }
 
 
-        invoices.unshift(invoice);
+        invoices.unshift(
+            invoice
+        );
 
     }
     else{
 
         const existingIndex =
             invoices.findIndex(
-                x => x.invoiceNo === newNo
+                x =>
+                    x.invoiceNo ===
+                    newNo
             );
 
-        if(existingIndex !== -1){
 
-            invoices[existingIndex] =
-                invoice;
+        if(
+            existingIndex !== -1
+        ){
+
+            invoices[
+                existingIndex
+            ] = invoice;
 
         }
         else{
 
-            invoices.unshift(invoice);
+            invoices.unshift(
+                invoice
+            );
 
         }
 
     }
 
 
-    saveInvoices(invoices);
+    saveInvoices(
+        invoices
+    );
+
 
     currentInvoiceNo =
         newNo;
@@ -1372,10 +1780,13 @@ function saveInvoice(){
     originalInvoiceNo =
         newNo;
 
+
     invoiceNumberEl.value =
         newNo;
 
+
     renderSavedInvoices();
+
 
     alert(
         "Invoice " +
@@ -1385,28 +1796,37 @@ function saveInvoice(){
 }
 
 
-/* =========================
-   LOAD INVOICE
-========================= */
+/* LOAD */
 
-function loadInvoice(invoiceNo){
+function loadInvoice(
+    invoiceNo
+){
 
     const invoices =
         getInvoices();
 
+
     const invoice =
         invoices.find(
-            x => x.invoiceNo === invoiceNo
+            x =>
+                x.invoiceNo ===
+                invoiceNo
         );
 
+
     if(!invoice){
-        alert("Invoice not found.");
+
+        alert(
+            "Invoice not found."
+        );
+
         return;
     }
 
 
     currentInvoiceNo =
         invoice.invoiceNo;
+
 
     originalInvoiceNo =
         invoice.invoiceNo;
@@ -1419,42 +1839,56 @@ function loadInvoice(invoiceNo){
     customerNameEl.value =
         invoice.customerName || "";
 
+
     customerPhoneEl.value =
         invoice.customerPhone || "";
+
 
     customerAddressEl.value =
         invoice.customerAddress || "";
 
+
     invoiceDateEl.value =
         invoice.invoiceDate || "";
+
 
     invoiceTimeEl.value =
         invoice.invoiceTime || "";
 
 
     items =
-        Array.isArray(invoice.items) &&
+        Array.isArray(
+            invoice.items
+        )
+        &&
         invoice.items.length
-        ? JSON.parse(
-            JSON.stringify(invoice.items)
-          )
-        : [
+        ?
+        JSON.parse(
+            JSON.stringify(
+                invoice.items
+            )
+        )
+        :
+        [
             {
                 description:"",
                 qty:1,
                 rate:0
             }
-          ];
+        ];
 
 
     discountEl.value =
         invoice.discount || 0;
 
+
     additionalChargesEl.value =
         invoice.additionalCharges || 0;
 
+
     exchangeDeductionEl.value =
         invoice.exchangeDeduction || 0;
+
 
     additionalNoteEl.value =
         invoice.additionalNote || "";
@@ -1464,6 +1898,7 @@ function loadInvoice(invoiceNo){
 
     calculateTotal();
 
+
     window.scrollTo({
         top:0,
         behavior:"smooth"
@@ -1471,11 +1906,11 @@ function loadInvoice(invoiceNo){
 }
 
 
-/* =========================
-   DELETE INVOICE
-========================= */
+/* DELETE */
 
-function deleteInvoice(invoiceNo){
+function deleteInvoice(
+    invoiceNo
+){
 
     const ok =
         confirm(
@@ -1484,32 +1919,44 @@ function deleteInvoice(invoiceNo){
             "?"
         );
 
+
     if(!ok){
         return;
     }
 
+
     let invoices =
         getInvoices();
 
+
     invoices =
         invoices.filter(
-            x => x.invoiceNo !== invoiceNo
+            x =>
+                x.invoiceNo !==
+                invoiceNo
         );
 
-    saveInvoices(invoices);
 
-    if(currentInvoiceNo === invoiceNo){
+    saveInvoices(
+        invoices
+    );
+
+
+    if(
+        currentInvoiceNo ===
+        invoiceNo
+    ){
 
         clearForm();
+
     }
+
 
     renderSavedInvoices();
 }
 
 
-/* =========================
-   SAVED INVOICES
-========================= */
+/* SAVED INVOICES */
 
 function renderSavedInvoices(){
 
@@ -1517,6 +1964,7 @@ function renderSavedInvoices(){
         document.getElementById(
             "savedInvoices"
         );
+
 
     const search =
         document.getElementById(
@@ -1527,55 +1975,69 @@ function renderSavedInvoices(){
 
 
     const invoices =
-        getInvoices().filter(invoice => {
+        getInvoices().filter(
+            invoice => {
 
-            if(!search){
-                return true;
+                if(!search){
+                    return true;
+                }
+
+
+                return (
+
+                    String(
+                        invoice.invoiceNo || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                    ||
+
+                    String(
+                        invoice.customerName || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                    ||
+
+                    String(
+                        invoice.customerPhone || ""
+                    )
+                    .toLowerCase()
+                    .includes(search)
+
+                );
+
             }
-
-            return (
-
-                String(invoice.invoiceNo || "")
-                    .toLowerCase()
-                    .includes(search)
-
-                ||
-
-                String(invoice.customerName || "")
-                    .toLowerCase()
-                    .includes(search)
-
-                ||
-
-                String(invoice.customerPhone || "")
-                    .toLowerCase()
-                    .includes(search)
-
-            );
-
-        });
+        );
 
 
     if(!invoices.length){
 
         container.innerHTML =
-            `<div class="empty">
+            `
+            <div class="empty">
                 No saved invoices found.
-             </div>`;
+            </div>
+            `;
 
         return;
     }
 
 
     container.innerHTML =
-        invoices.map(invoice => `
+        invoices.map(
+            invoice => `
 
             <div class="saved-item">
 
                 <div class="saved-info">
 
                     <strong>
-                        ${escapeHTML(invoice.invoiceNo)}
+                        ${escapeHTML(
+                            invoice.invoiceNo
+                        )}
                     </strong>
 
                     <div>
@@ -1593,7 +2055,9 @@ function renderSavedInvoices(){
                             invoice.invoiceTime || ""
                         )}
                         &nbsp; | &nbsp;
-                        Rs ${money(invoice.finalTotal)}
+                        Rs ${money(
+                            invoice.finalTotal
+                        )}
                     </small>
 
                 </div>
@@ -1609,6 +2073,7 @@ function renderSavedInvoices(){
                         Open
                     </button>
 
+
                     <button
                         type="button"
                         class="btn btn-danger btn-small"
@@ -1621,28 +2086,31 @@ function renderSavedInvoices(){
 
             </div>
 
-        `).join("");
+            `
+        ).join("");
 }
 
 
-/* =========================
-   CLEAR
-========================= */
+/* CLEAR */
 
 function clearForm(){
 
     currentInvoiceNo = "";
     originalInvoiceNo = "";
 
+
     customerNameEl.value = "";
     customerPhoneEl.value = "";
     customerAddressEl.value = "";
+
 
     discountEl.value = 0;
     additionalChargesEl.value = 0;
     exchangeDeductionEl.value = 0;
 
+
     additionalNoteEl.value = "";
+
 
     items = [
         {
@@ -1652,29 +2120,33 @@ function clearForm(){
         }
     ];
 
-    setCurrentDateTime();
 
     invoiceNumberEl.value =
         nextInvoiceNumber();
+
+
+    setCurrentDateTime();
+
 
     renderItems();
 
     calculateTotal();
 
+
     document.getElementById(
         "previewSection"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 }
 
 
-/* =========================
-   PREVIEW
-========================= */
+/* PREVIEW */
 
 function showPreview(){
 
     const invoice =
         collectInvoice();
+
 
     if(!invoice.customerName){
 
@@ -1689,37 +2161,53 @@ function showPreview(){
 
 
     const itemsRows =
-        invoice.items.map(item => {
+        invoice.items.map(
+            item => {
 
-            const amount =
-                (Number(item.qty) || 0) *
-                (Number(item.rate) || 0);
+                const amount =
+                    (
+                        Number(item.qty)
+                        || 0
+                    )
+                    *
+                    (
+                        Number(item.rate)
+                        || 0
+                    );
 
-            return `
-                <tr>
 
-                    <td>
-                        ${escapeHTML(
-                            item.description
-                        )}
-                    </td>
+                return `
 
-                    <td>
-                        ${item.qty}
-                    </td>
+                    <tr>
 
-                    <td>
-                        Rs ${money(item.rate)}
-                    </td>
+                        <td>
+                            ${escapeHTML(
+                                item.description
+                            )}
+                        </td>
 
-                    <td>
-                        Rs ${money(amount)}
-                    </td>
+                        <td>
+                            ${item.qty}
+                        </td>
 
-                </tr>
-            `;
+                        <td>
+                            Rs ${money(
+                                item.rate
+                            )}
+                        </td>
 
-        }).join("");
+                        <td>
+                            Rs ${money(
+                                amount
+                            )}
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        ).join("");
 
 
     const preview = `
@@ -1732,7 +2220,7 @@ function showPreview(){
                     Midea
                 </div>
 
-                <div>
+                <div class="preview-company">
                     Air Conditioner
                 </div>
 
@@ -1741,7 +2229,9 @@ function showPreview(){
 
             <div class="preview-title">
 
-                <h1>INVOICE</h1>
+                <h1>
+                    INVOICE
+                </h1>
 
                 <div>
                     <strong>
@@ -1777,7 +2267,7 @@ function showPreview(){
 
         <div style="margin-bottom:20px;">
 
-            <h3 style="margin-bottom:8px;">
+            <h3 style="margin-bottom:8px;color:#005bac;">
                 Bill To
             </h3>
 
@@ -1789,28 +2279,34 @@ function showPreview(){
                 </strong>
             </div>
 
+
             ${
                 invoice.customerPhone
                 ?
-                `<div>
+                `
+                <div>
                     Phone:
                     ${escapeHTML(
                         invoice.customerPhone
                     )}
-                </div>`
+                </div>
+                `
                 :
                 ""
             }
 
+
             ${
                 invoice.customerAddress
                 ?
-                `<div>
+                `
+                <div>
                     Address:
                     ${escapeHTML(
                         invoice.customerAddress
                     )}
-                </div>`
+                </div>
+                `
                 :
                 ""
             }
@@ -1844,6 +2340,7 @@ function showPreview(){
 
             </thead>
 
+
             <tbody>
 
                 ${itemsRows}
@@ -1856,48 +2353,77 @@ function showPreview(){
         <div class="preview-summary">
 
             <div class="summary-row">
-                <span>Subtotal</span>
+
+                <span>
+                    Subtotal
+                </span>
+
                 <strong>
-                    Rs ${money(invoice.subtotal)}
+                    Rs ${money(
+                        invoice.subtotal
+                    )}
                 </strong>
+
             </div>
 
-            <div class="summary-row">
-                <span>Discount</span>
-                <strong>
-                    Rs ${money(invoice.discount)}
-                </strong>
-            </div>
 
             <div class="summary-row">
-                <span>Additional Charges</span>
+
+                <span>
+                    Discount
+                </span>
+
+                <strong>
+                    Rs ${money(
+                        invoice.discount
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Additional Charges
+                </span>
+
                 <strong>
                     Rs ${money(
                         invoice.additionalCharges
                     )}
                 </strong>
+
             </div>
 
+
             <div class="summary-row">
+
                 <span>
                     Exchange Deduction
                 </span>
+
                 <strong>
                     Rs ${money(
                         invoice.exchangeDeduction
                     )}
                 </strong>
+
             </div>
 
+
             <div class="summary-row total">
+
                 <span>
                     FINAL TOTAL
                 </span>
+
                 <strong>
                     Rs ${money(
                         invoice.finalTotal
                     )}
                 </strong>
+
             </div>
 
         </div>
@@ -1906,7 +2432,8 @@ function showPreview(){
         ${
             invoice.additionalNote
             ?
-            `<div class="note-box">
+            `
+            <div class="note-box">
 
                 <strong>
                     Warranty / Additional Note
@@ -1915,23 +2442,20 @@ function showPreview(){
                 <div style="margin-top:7px;">
                     ${escapeHTML(
                         invoice.additionalNote
-                    ).replace(/\n/g,"<br>")}
+                    ).replace(
+                        /\n/g,
+                        "<br>"
+                    )}
                 </div>
 
-            </div>`
+            </div>
+            `
             :
             ""
         }
 
 
-        <div style="
-            margin-top:40px;
-            padding-top:15px;
-            border-top:1px solid #ddd;
-            text-align:center;
-            color:#666;
-            font-size:12px;
-        ">
+        <div class="footer-line">
             Thank you for your business.
         </div>
 
@@ -1940,12 +2464,14 @@ function showPreview(){
 
     document.getElementById(
         "previewBox"
-    ).innerHTML = preview;
+    ).innerHTML =
+        preview;
 
 
     document.getElementById(
         "previewSection"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     document.getElementById(
@@ -1956,14 +2482,13 @@ function showPreview(){
 }
 
 
-/* =========================
-   PRINT
-========================= */
+/* PRINT */
 
 function printInvoice(){
 
     const invoice =
         collectInvoice();
+
 
     if(!invoice.customerName){
 
@@ -1978,35 +2503,53 @@ function printInvoice(){
 
 
     const itemsRows =
-        invoice.items.map(item => {
+        invoice.items.map(
+            item => {
 
-            const amount =
-                (Number(item.qty) || 0) *
-                (Number(item.rate) || 0);
+                const amount =
+                    (
+                        Number(item.qty)
+                        || 0
+                    )
+                    *
+                    (
+                        Number(item.rate)
+                        || 0
+                    );
 
-            return `
-                <tr>
-                    <td>
-                        ${escapeHTML(
-                            item.description
-                        )}
-                    </td>
 
-                    <td>
-                        ${item.qty}
-                    </td>
+                return `
 
-                    <td>
-                        Rs ${money(item.rate)}
-                    </td>
+                    <tr>
 
-                    <td>
-                        Rs ${money(amount)}
-                    </td>
-                </tr>
-            `;
+                        <td>
+                            ${escapeHTML(
+                                item.description
+                            )}
+                        </td>
 
-        }).join("");
+                        <td>
+                            ${item.qty}
+                        </td>
+
+                        <td>
+                            Rs ${money(
+                                item.rate
+                            )}
+                        </td>
+
+                        <td>
+                            Rs ${money(
+                                amount
+                            )}
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        ).join("");
 
 
     const printWindow =
@@ -2031,384 +2574,421 @@ function printInvoice(){
 
     printWindow.document.write(`
 
-        <!DOCTYPE html>
-
-        <html>
-
-        <head>
-
-            <meta charset="UTF-8">
-
-            <title>
-                ${escapeHTML(
-                    invoice.invoiceNo
-                )}
-            </title>
-
-            <style>
-
-                *{
-                    box-sizing:border-box;
-                }
-
-                body{
-                    font-family:Arial,
-                    Helvetica,sans-serif;
-                    padding:30px;
-                    color:#111;
-                }
-
-                .header{
-                    display:flex;
-                    justify-content:space-between;
-                    border-bottom:3px solid #e60012;
-                    padding-bottom:15px;
-                    margin-bottom:20px;
-                }
-
-                .logo{
-                    font-size:40px;
-                    font-weight:900;
-                    color:#e60012;
-                }
-
-                .title{
-                    text-align:right;
-                }
-
-                .title h1{
-                    margin:0 0 7px;
-                    font-size:28px;
-                }
-
-                table{
-                    width:100%;
-                    border-collapse:collapse;
-                    margin-top:20px;
-                }
-
-                th{
-                    background:#e60012;
-                    color:#fff;
-                }
-
-                th,td{
-                    border:1px solid #ccc;
-                    padding:9px;
-                    text-align:left;
-                }
-
-                .summary{
-                    width:350px;
-                    margin-left:auto;
-                    margin-top:20px;
-                }
-
-                .row{
-                    display:flex;
-                    justify-content:space-between;
-                    padding:8px;
-                    border-bottom:1px solid #ddd;
-                }
-
-                .total{
-                    background:#111;
-                    color:#fff;
-                    font-size:19px;
-                    font-weight:bold;
-                }
-
-                .note{
-                    margin-top:25px;
-                    padding:12px;
-                    border-left:4px solid #e60012;
-                    background:#f5f5f5;
-                }
-
-                .footer{
-                    text-align:center;
-                    margin-top:45px;
-                    font-size:12px;
-                    color:#777;
-                }
-
-                @media print{
-
-                    body{
-                        padding:15px;
-                    }
-
-                }
-
-            </style>
-
-        </head>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+${escapeHTML(
+    invoice.invoiceNo
+)}
+</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    padding:30px;
+    color:#172033;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:3px solid #005bac;
+    padding-bottom:15px;
+    margin-bottom:20px;
+}
+
+.logo{
+    display:inline-block;
+    background:#005bac;
+    color:#fff;
+    font-size:38px;
+    font-weight:900;
+    padding:6px 13px;
+    border-radius:3px;
+}
+
+.company{
+    margin-top:6px;
+    color:#475569;
+}
 
-        <body>
+.title{
+    text-align:right;
+}
+
+.title h1{
+    margin:0 0 7px;
+    font-size:28px;
+    color:#005bac;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#005bac;
+    color:#fff;
+}
+
+th,
+td{
+    border:1px solid #cbd5e1;
+    padding:9px;
+    text-align:left;
+}
+
+.summary{
+    width:350px;
+    margin-left:auto;
+    margin-top:20px;
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    padding:8px;
+    border-bottom:1px solid #ddd;
+}
 
-            <div class="header">
+.total{
+    background:#005bac;
+    color:#fff;
+    font-size:19px;
+    font-weight:bold;
+}
 
-                <div>
+.note{
+    margin-top:25px;
+    padding:12px;
+    border-left:4px solid #005bac;
+    background:#f5f8fc;
+}
 
-                    <div class="logo">
-                        Midea
-                    </div>
+.footer{
+    text-align:center;
+    margin-top:45px;
+    font-size:12px;
+    color:#777;
+}
 
-                    <div>
-                        Air Conditioner
-                    </div>
+@media print{
 
-                </div>
+    body{
+        padding:15px;
+    }
 
+}
 
-                <div class="title">
+</style>
 
-                    <h1>
-                        INVOICE
-                    </h1>
+</head>
 
-                    <div>
-                        <strong>
-                            Invoice No:
-                        </strong>
-                        ${escapeHTML(
-                            invoice.invoiceNo
-                        )}
-                    </div>
 
-                    <div>
-                        <strong>
-                            Date:
-                        </strong>
-                        ${escapeHTML(
-                            invoice.invoiceDate
-                        )}
-                    </div>
+<body>
 
-                    <div>
-                        <strong>
-                            Time:
-                        </strong>
-                        ${escapeHTML(
-                            invoice.invoiceTime
-                        )}
-                    </div>
 
-                </div>
+<div class="header">
 
-            </div>
+    <div>
 
+        <div class="logo">
+            Midea
+        </div>
 
-            <div>
+        <div class="company">
+            Air Conditioner
+        </div>
 
-                <h3>
-                    Bill To
-                </h3>
+    </div>
 
-                <p>
-                    <strong>
-                        ${escapeHTML(
-                            invoice.customerName
-                        )}
-                    </strong>
-                </p>
 
-                ${
-                    invoice.customerPhone
-                    ?
-                    `<p>
-                        Phone:
-                        ${escapeHTML(
-                            invoice.customerPhone
-                        )}
-                    </p>`
-                    :
-                    ""
-                }
+    <div class="title">
 
-                ${
-                    invoice.customerAddress
-                    ?
-                    `<p>
-                        Address:
-                        ${escapeHTML(
-                            invoice.customerAddress
-                        )}
-                    </p>`
-                    :
-                    ""
-                }
+        <h1>
+            INVOICE
+        </h1>
 
-            </div>
+        <div>
+            <strong>
+                Invoice No:
+            </strong>
 
+            ${escapeHTML(
+                invoice.invoiceNo
+            )}
+        </div>
 
-            <table>
+        <div>
+            <strong>
+                Date:
+            </strong>
 
-                <thead>
+            ${escapeHTML(
+                invoice.invoiceDate
+            )}
+        </div>
 
-                    <tr>
+        <div>
+            <strong>
+                Time:
+            </strong>
 
-                        <th>
-                            Description
-                        </th>
+            ${escapeHTML(
+                invoice.invoiceTime
+            )}
+        </div>
 
-                        <th>
-                            Qty
-                        </th>
+    </div>
 
-                        <th>
-                            Rate
-                        </th>
+</div>
 
-                        <th>
-                            Amount
-                        </th>
 
-                    </tr>
+<div>
 
-                </thead>
+    <h3>
+        Bill To
+    </h3>
 
-                <tbody>
 
-                    ${itemsRows}
+    <p>
+        <strong>
+            ${escapeHTML(
+                invoice.customerName
+            )}
+        </strong>
+    </p>
 
-                </tbody>
 
-            </table>
+    ${
+        invoice.customerPhone
+        ?
+        `
+        <p>
+            Phone:
+            ${escapeHTML(
+                invoice.customerPhone
+            )}
+        </p>
+        `
+        :
+        ""
+    }
 
 
-            <div class="summary">
+    ${
+        invoice.customerAddress
+        ?
+        `
+        <p>
+            Address:
+            ${escapeHTML(
+                invoice.customerAddress
+            )}
+        </p>
+        `
+        :
+        ""
+    }
 
-                <div class="row">
-                    <span>
-                        Subtotal
-                    </span>
+</div>
 
-                    <strong>
-                        Rs ${money(
-                            invoice.subtotal
-                        )}
-                    </strong>
-                </div>
 
+<table>
 
-                <div class="row">
-                    <span>
-                        Discount
-                    </span>
+    <thead>
 
-                    <strong>
-                        Rs ${money(
-                            invoice.discount
-                        )}
-                    </strong>
-                </div>
+        <tr>
 
+            <th>
+                Description
+            </th>
 
-                <div class="row">
-                    <span>
-                        Additional Charges
-                    </span>
+            <th>
+                Qty
+            </th>
 
-                    <strong>
-                        Rs ${money(
-                            invoice.additionalCharges
-                        )}
-                    </strong>
-                </div>
+            <th>
+                Rate
+            </th>
 
+            <th>
+                Amount
+            </th>
 
-                <div class="row">
-                    <span>
-                        Exchange Deduction
-                    </span>
+        </tr>
 
-                    <strong>
-                        Rs ${money(
-                            invoice.exchangeDeduction
-                        )}
-                    </strong>
-                </div>
+    </thead>
 
 
-                <div class="row total">
+    <tbody>
 
-                    <span>
-                        FINAL TOTAL
-                    </span>
+        ${itemsRows}
 
-                    <strong>
-                        Rs ${money(
-                            invoice.finalTotal
-                        )}
-                    </strong>
+    </tbody>
 
-                </div>
+</table>
 
-            </div>
 
+<div class="summary">
 
-            ${
+    <div class="row">
+
+        <span>
+            Subtotal
+        </span>
+
+        <strong>
+            Rs ${money(
+                invoice.subtotal
+            )}
+        </strong>
+
+    </div>
+
+
+    <div class="row">
+
+        <span>
+            Discount
+        </span>
+
+        <strong>
+            Rs ${money(
+                invoice.discount
+            )}
+        </strong>
+
+    </div>
+
+
+    <div class="row">
+
+        <span>
+            Additional Charges
+        </span>
+
+        <strong>
+            Rs ${money(
+                invoice.additionalCharges
+            )}
+        </strong>
+
+    </div>
+
+
+    <div class="row">
+
+        <span>
+            Exchange Deduction
+        </span>
+
+        <strong>
+            Rs ${money(
+                invoice.exchangeDeduction
+            )}
+        </strong>
+
+    </div>
+
+
+    <div class="row total">
+
+        <span>
+            FINAL TOTAL
+        </span>
+
+        <strong>
+            Rs ${money(
+                invoice.finalTotal
+            )}
+        </strong>
+
+    </div>
+
+</div>
+
+
+${
+    invoice.additionalNote
+    ?
+    `
+    <div class="note">
+
+        <strong>
+            Warranty / Additional Note
+        </strong>
+
+        <div style="margin-top:7px;">
+            ${escapeHTML(
                 invoice.additionalNote
-                ?
-                `<div class="note">
+            ).replace(
+                /\n/g,
+                "<br>"
+            )}
+        </div>
 
-                    <strong>
-                        Warranty / Additional Note
-                    </strong>
-
-                    <div style="margin-top:7px;">
-                        ${escapeHTML(
-                            invoice.additionalNote
-                        ).replace(/\n/g,"<br>")}
-                    </div>
-
-                </div>`
-                :
-                ""
-            }
+    </div>
+    `
+    :
+    ""
+}
 
 
-            <div class="footer">
-                Thank you for your business.
-            </div>
+<div class="footer">
+    Thank you for your business.
+</div>
 
 
-            <script>
+<script>
 
-                window.onload = function(){
+window.onload = function(){
 
-                    setTimeout(function(){
+    setTimeout(
+        function(){
 
-                        window.print();
+            window.print();
 
-                    },300);
+        },
+        300
+    );
 
-                };
+};
 
-            <\/script>
+<\/script>
 
 
-        </body>
+</body>
 
-        </html>
+</html>
 
     `);
 
 
     printWindow.document.close();
-
 }
 
 
-/* =========================
-   WHATSAPP
-========================= */
+/* WHATSAPP */
 
 function sendWhatsApp(){
 
     const invoice =
         collectInvoice();
+
 
     if(!invoice.customerPhone){
 
@@ -2424,31 +3004,47 @@ function sendWhatsApp(){
 
     const itemLines =
         invoice.items
-        .filter(item =>
-            item.description ||
-            Number(item.rate) ||
-            Number(item.qty)
+        .filter(
+            item =>
+                item.description ||
+                Number(item.rate) ||
+                Number(item.qty)
         )
-        .map(item => {
+        .map(
+            item => {
 
-            const amount =
-                (Number(item.qty) || 0) *
-                (Number(item.rate) || 0);
+                const amount =
+                    (
+                        Number(item.qty)
+                        || 0
+                    )
+                    *
+                    (
+                        Number(item.rate)
+                        || 0
+                    );
 
-            return (
-                "• " +
-                (item.description || "Item") +
-                " | Qty: " +
-                item.qty +
-                " | Rs " +
-                money(amount)
-            );
 
-        })
+                return (
+                    "• " +
+                    (
+                        item.description
+                        ||
+                        "Item"
+                    ) +
+                    " | Qty: " +
+                    item.qty +
+                    " | Rs " +
+                    money(amount)
+                );
+
+            }
+        )
         .join("\n");
 
 
     let message =
+
 `*MIDEA AC INVOICE*
 
 Invoice No: ${invoice.invoiceNo}
@@ -2457,9 +3053,15 @@ Time: ${invoice.invoiceTime}
 
 Customer: ${invoice.customerName}
 Phone: ${invoice.customerPhone}
-${invoice.customerAddress
-    ? "Address: " + invoice.customerAddress + "\n"
-    : ""}
+${
+    invoice.customerAddress
+    ?
+    "Address: " +
+    invoice.customerAddress +
+    "\n"
+    :
+    ""
+}
 
 *Items:*
 ${itemLines}
@@ -2477,22 +3079,29 @@ Exchange Deduction: Rs ${money(invoice.exchangeDeduction)}
         message +=
             "\n\n*Warranty / Note:*\n" +
             invoice.additionalNote;
+
     }
 
 
     const phone =
         invoice.customerPhone
-            .replace(/\D/g,"");
+            .replace(
+                /\D/g,
+                ""
+            );
 
 
     let whatsappNumber =
         phone;
 
 
-    if(phone.startsWith("0")){
+    if(
+        phone.startsWith("0")
+    ){
 
         whatsappNumber =
-            "92" + phone.substring(1);
+            "92" +
+            phone.substring(1);
 
     }
 
@@ -2501,7 +3110,9 @@ Exchange Deduction: Rs ${money(invoice.exchangeDeduction)}
         "https://wa.me/" +
         whatsappNumber +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(
+            message
+        );
 
 
     window.open(
@@ -2511,9 +3122,7 @@ Exchange Deduction: Rs ${money(invoice.exchangeDeduction)}
 }
 
 
-/* =========================
-   INITIALIZE
-========================= */
+/* INITIALIZE */
 
 setCurrentDateTime();
 
